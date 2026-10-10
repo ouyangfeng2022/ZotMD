@@ -15,7 +15,10 @@ describe("markdown attachment creation", function () {
   after(async function () {
     for (const id of createdItemIDs.reverse()) {
       try {
-        await Zotero.Items.get(id)?.eraseTx();
+        const item = Zotero.Items.get(id);
+        if (item) {
+          await item.eraseTx();
+        }
       } catch (error) {
         Zotero.debug(`[ZotMD test] cleanup failed for item ${id}: ${error}`);
       }

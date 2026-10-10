@@ -394,7 +394,7 @@ function resolveParentItem(item: Zotero.Item): Zotero.Item | null {
   if (!parentID) {
     return null;
   }
-  return Zotero.Items.get(parentID) ?? null;
+  return Zotero.Items.get(parentID) || null;
 }
 
 /** Prefer the item's PDF, falling back to any other file MinerU can parse. */
@@ -404,7 +404,10 @@ async function pickSourceAttachment(
   const attachments = item
     .getAttachments()
     .map((id) => Zotero.Items.get(id))
-    .filter((attachment) => attachment?.isFileAttachment());
+    .filter(
+      (attachment): attachment is Zotero.Item =>
+        !!attachment && attachment.isFileAttachment(),
+    );
   if (!attachments.length) {
     return null;
   }
