@@ -5,28 +5,198 @@
   onload="Zotero.__addonInstance__.hooks.onPrefsEvent('load', { window })"
 >
   <label><html:h2 data-l10n-id="pref-title"></html:h2></label>
-  <checkbox
-    id="zotero-prefpane-__addonRef__-enable"
-    preference="enable"
-    data-l10n-id="pref-enable"
-  />
-  <hbox>
-    <html:label
-      for="zotero-prefpane-__addonRef__-input"
-      data-l10n-id="pref-input"
-    ></html:label>
-    <html:input
-      type="text"
-      id="zotero-prefpane-__addonRef__-input"
-      preference="input"
-    ></html:input>
-  </hbox>
-  <hbox class="virtualized-table-container" flex="1" height="300px">
-    <html:div id="__addonRef__-table-container" />
-  </hbox>
+  <html:p class="zotmd-hint" data-l10n-id="pref-intro"></html:p>
+
+  <vbox class="zotmd-section">
+    <html:h3 data-l10n-id="pref-section-account"></html:h3>
+    <hbox align="center" class="zotmd-row">
+      <html:label
+        class="zotmd-label"
+        data-l10n-id="pref-token"
+        for="zotero-prefpane-__addonRef__-apiToken"
+      ></html:label>
+      <html:input
+        type="password"
+        class="zotmd-input"
+        id="zotero-prefpane-__addonRef__-apiToken"
+        preference="apiToken"
+      ></html:input>
+    </hbox>
+    <hbox align="center" class="zotmd-row">
+      <html:label
+        class="zotmd-label"
+        data-l10n-id="pref-api-base"
+        for="zotero-prefpane-__addonRef__-apiBase"
+      ></html:label>
+      <html:input
+        type="text"
+        class="zotmd-input"
+        id="zotero-prefpane-__addonRef__-apiBase"
+        preference="apiBase"
+      ></html:input>
+    </hbox>
+    <hbox align="center" class="zotmd-row">
+      <button
+        id="zotero-prefpane-__addonRef__-checkToken"
+        data-l10n-id="pref-check-token"
+      ></button>
+      <html:span
+        id="zotero-prefpane-__addonRef__-checkResult"
+        class="zotmd-status"
+      ></html:span>
+    </hbox>
+    <html:p class="zotmd-hint" data-l10n-id="pref-token-hint"></html:p>
+  </vbox>
+
+  <vbox class="zotmd-section">
+    <html:h3 data-l10n-id="pref-section-parsing"></html:h3>
+    <hbox align="center" class="zotmd-row">
+      <html:label
+        class="zotmd-label"
+        data-l10n-id="pref-model"
+        for="zotero-prefpane-__addonRef__-modelVersion"
+      ></html:label>
+      <menulist
+        id="zotero-prefpane-__addonRef__-modelVersion"
+        preference="modelVersion"
+      >
+        <menupopup>
+          <menuitem value="vlm" data-l10n-id="pref-model-vlm"></menuitem>
+          <menuitem
+            value="pipeline"
+            data-l10n-id="pref-model-pipeline"
+          ></menuitem>
+          <menuitem
+            value="MinerU-HTML"
+            data-l10n-id="pref-model-html"
+          ></menuitem>
+        </menupopup>
+      </menulist>
+    </hbox>
+    <hbox align="center" class="zotmd-row">
+      <html:label
+        class="zotmd-label"
+        data-l10n-id="pref-language"
+        for="zotero-prefpane-__addonRef__-language"
+      ></html:label>
+      <menulist
+        id="zotero-prefpane-__addonRef__-language"
+        preference="language"
+      >
+        <menupopup>
+          <menuitem value="ch" label="中文 / 英文 (ch)"></menuitem>
+          <menuitem
+            value="ch_server"
+            label="中文 (服务器版, ch_server)"
+          ></menuitem>
+          <menuitem value="en" label="English (en)"></menuitem>
+          <menuitem value="japan" label="日本語 (japan)"></menuitem>
+          <menuitem value="korean" label="한국어 (korean)"></menuitem>
+          <menuitem
+            value="chinese_cht"
+            label="繁體中文 (chinese_cht)"
+          ></menuitem>
+          <menuitem value="latin" label="Latin (latin)"></menuitem>
+          <menuitem value="arabic" label="العربية (arabic)"></menuitem>
+          <menuitem value="cyrillic" label="Cyrillic (cyrillic)"></menuitem>
+          <menuitem value="devanagari" label="देवनागरी (devanagari)"></menuitem>
+        </menupopup>
+      </menulist>
+    </hbox>
+    <checkbox
+      id="zotero-prefpane-__addonRef__-isOcr"
+      preference="isOcr"
+      data-l10n-id="pref-is-ocr"
+    />
+    <checkbox
+      id="zotero-prefpane-__addonRef__-enableFormula"
+      preference="enableFormula"
+      data-l10n-id="pref-enable-formula"
+    />
+    <checkbox
+      id="zotero-prefpane-__addonRef__-enableTable"
+      preference="enableTable"
+      data-l10n-id="pref-enable-table"
+    />
+    <hbox align="center" class="zotmd-row">
+      <html:label
+        class="zotmd-label"
+        data-l10n-id="pref-page-ranges"
+        for="zotero-prefpane-__addonRef__-pageRanges"
+      ></html:label>
+      <html:input
+        type="text"
+        class="zotmd-input zotmd-input-narrow"
+        placeholder="2,4-6"
+        id="zotero-prefpane-__addonRef__-pageRanges"
+        preference="pageRanges"
+      ></html:input>
+    </hbox>
+    <html:p class="zotmd-hint" data-l10n-id="pref-page-ranges-hint"></html:p>
+  </vbox>
+
+  <vbox class="zotmd-section">
+    <html:h3 data-l10n-id="pref-section-output"></html:h3>
+    <hbox align="center" class="zotmd-row">
+      <html:label
+        class="zotmd-label"
+        data-l10n-id="pref-image-mode"
+        for="zotero-prefpane-__addonRef__-mdImageMode"
+      ></html:label>
+      <menulist
+        id="zotero-prefpane-__addonRef__-mdImageMode"
+        preference="mdImageMode"
+      >
+        <menupopup>
+          <menuitem value="folder" data-l10n-id="pref-image-folder"></menuitem>
+          <menuitem value="base64" data-l10n-id="pref-image-base64"></menuitem>
+          <menuitem value="none" data-l10n-id="pref-image-none"></menuitem>
+        </menupopup>
+      </menulist>
+    </hbox>
+    <html:p class="zotmd-hint" data-l10n-id="pref-image-mode-hint"></html:p>
+    <checkbox
+      id="zotero-prefpane-__addonRef__-notifyOnComplete"
+      preference="notifyOnComplete"
+      data-l10n-id="pref-notify"
+    />
+  </vbox>
+
+  <vbox class="zotmd-section">
+    <html:h3 data-l10n-id="pref-section-advanced"></html:h3>
+    <hbox align="center" class="zotmd-row">
+      <html:label
+        class="zotmd-label"
+        data-l10n-id="pref-poll-interval"
+        for="zotero-prefpane-__addonRef__-pollIntervalSec"
+      ></html:label>
+      <html:input
+        type="number"
+        min="2"
+        class="zotmd-input zotmd-input-narrow"
+        id="zotero-prefpane-__addonRef__-pollIntervalSec"
+        preference="pollIntervalSec"
+      ></html:input>
+    </hbox>
+    <hbox align="center" class="zotmd-row">
+      <html:label
+        class="zotmd-label"
+        data-l10n-id="pref-timeout"
+        for="zotero-prefpane-__addonRef__-taskTimeoutMin"
+      ></html:label>
+      <html:input
+        type="number"
+        min="1"
+        class="zotmd-input zotmd-input-narrow"
+        id="zotero-prefpane-__addonRef__-taskTimeoutMin"
+        preference="taskTimeoutMin"
+      ></html:input>
+    </hbox>
+  </vbox>
 </groupbox>
 <vbox>
   <html:label
+    class="zotmd-hint"
     data-l10n-id="pref-help"
     data-l10n-args='{"time": "__buildTime__","name": "__addonName__","version":"__buildVersion__"}'
   ></html:label>

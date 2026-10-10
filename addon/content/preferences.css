@@ -1,0 +1,53 @@
+.zotmd-section {
+  margin-block: 0.75em;
+  padding-block-start: 0.25em;
+  border-block-start: 1px solid
+    color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.zotmd-section > h3 {
+  margin-block: 0.4em 0.2em;
+  font-size: 1.05em;
+}
+
+.zotmd-row {
+  gap: 0.6em;
+  margin-block: 0.2em;
+}
+
+.zotmd-label {
+  min-width: 12em;
+  flex: 0 0 auto;
+}
+
+.zotmd-input {
+  flex: 1 1 auto;
+  max-width: 32em;
+}
+
+.zotmd-input-narrow {
+  flex: 0 0 auto;
+  max-width: 8em;
+}
+
+.zotmd-hint {
+  margin-block: 0.2em 0.4em;
+  opacity: 0.75;
+  font-size: 0.9em;
+}
+
+.zotmd-status {
+  margin-inline-start: 0.5em;
+}
+
+.zotmd-status[data-state="ok"] {
+  color: #1a7f37;
+}
+
+.zotmd-status[data-state="error"] {
+  color: #b42318;
+}
+
+.zotmd-status[data-state="pending"] {
+  opacity: 0.75;
+}

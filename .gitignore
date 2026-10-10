@@ -14,3 +14,11 @@ tsconfig.tsbuildinfo
 .scaffold
 build
 logs
+# Local credentials and editor / OS files
+.env.*
+!.env.example
+*.pem
+*.key
+*.log
+Thumbs.db
+.idea/

@@ -1,11 +1,34 @@
-startup-begin = 插件加载中
-startup-finish = 插件已就绪
-menuitem-label = 插件模板: 帮助工具样例
-menupopup-label = 插件模板: 弹出菜单
-menuitem-submenulabel = 插件模板：子菜单
-menuitem-filemenulabel = 插件模板: 文件菜单
-prefs-title = 插件模板
-prefs-table-title = 标题
-prefs-table-detail = 详情
-tabpanel-lib-tab-label = 库标签
-tabpanel-reader-tab-label = 阅读器标签
+menuitem-ocr = 用 MinerU OCR（生成 Markdown）
+
+progress-header = ZotMD: MinerU OCR
+progress-reading = 正在读取本地文件…
+progress-reading-file = 正在读取文件…
+progress-uploading = 正在上传到 MinerU…
+progress-uploading-file = 上传中…
+progress-queued = 已提交，等待 MinerU 处理…
+progress-parsing = MinerU 正在解析…
+progress-parsed = 解析完成，正在获取结果…
+progress-saving = 正在保存 Markdown 附件…
+progress-done = 已添加 Markdown 附件
+progress-summary = 完成：成功 { $succeeded } 个，失败 { $failed } 个，跳过 { $skipped } 个
+progress-cancelled = 已取消：已保存 { $saved } 个，{ $remaining } 个未处理
+progress-cancel-hint = 点击此窗口可取消任务
+
+progress-state-waiting-file = 等待上传…
+progress-state-pending = 排队中…
+progress-state-running = 解析中…
+progress-state-converting = 转换中…
+
+attachment-title = { $title }（MinerU Markdown）
+
+error-no-token = 尚未配置 MinerU API Token。请在 Zotero 首选项的 ZotMD 设置中填写。
+error-no-selection = 请先选择至少一个条目。
+error-nothing-to-ocr = 没有可识别的文件：所选 { $count } 个条目中没有一个带有 PDF 或其他受支持的文件附件。
+error-no-result = MinerU 未返回该文件的识别结果。
+error-task-failed = MinerU 解析该文件失败。
+error-no-markdown = 结果压缩包中没有 Markdown 文件。
+
+prefs-title = ZotMD
+pref-token-missing = 请先填写 Token。
+pref-token-checking = 校验中…
+pref-token-valid = Token 有效。

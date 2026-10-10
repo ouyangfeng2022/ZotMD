@@ -1,0 +1,3 @@
+# Empty npmrc used only to isolate this install from the user-level ~/.npmrc.
+# See README "Install" section: npm_config_allow_scripts in a user npmrc breaks
+# npm 11.17 git-dependency preparation (EALLOWSCRIPTS).

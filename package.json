@@ -1,24 +1,21 @@
 {
-  "name": "zotero-plugin-template",
+  "name": "zotmd",
   "type": "module",
-  "version": "3.1.0",
-  "description": "Zotero Plugin Template",
+  "version": "0.2.1",
+  "description": "OCR PDFs (and other documents) with MinerU and store the result as a Markdown child attachment.",
   "config": {
-    "addonName": "Zotero Plugin Template",
-    "addonID": "addontemplate@euclpts.com",
-    "addonRef": "addontemplate",
-    "addonInstance": "AddonTemplate",
-    "prefsPrefix": "extensions.zotero.addontemplate"
+    "addonName": "ZotMD",
+    "addonID": "zotmd@celery.dev",
+    "addonRef": "zotmd",
+    "addonInstance": "ZotMD",
+    "prefsPrefix": "extensions.zotero.zotmd"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/windingwind/zotero-plugin-template.git"
+    "url": "git+https://github.com/ouyangfeng2022/ZotMD.git"
   },
-  "author": "windingwind",
-  "bugs": {
-    "url": "https://github.com/windingwind/zotero-plugin-template/issues"
-  },
-  "homepage": "https://github.com/windingwind/zotero-plugin-template#readme",
+  "homepage": "https://github.com/ouyangfeng2022/ZotMD#readme",
+  "author": "Celery",
   "license": "AGPL-3.0-or-later",
   "scripts": {
     "start": "zotero-plugin serve",
@@ -59,5 +56,11 @@
         }
       }
     ]
+  },
+  "bugs": {
+    "url": "https://github.com/ouyangfeng2022/ZotMD/issues"
+  },
+  "engines": {
+    "node": ">=22.8.0"
   }
 }

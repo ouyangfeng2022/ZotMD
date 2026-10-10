@@ -1,5 +1,8 @@
 {
   "extends": "zotero-types/entries/sandbox/",
-  "include": ["src", "typings"],
+  "compilerOptions": {
+    "types": ["zotero-types/entries/sandbox", "mocha"]
+  },
+  "include": ["src", "typings", "test"],
   "exclude": ["build", "addon"]
 }

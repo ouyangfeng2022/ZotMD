@@ -1,11 +1,34 @@
-startup-begin = Addon is loading
-startup-finish = Addon is ready
-menuitem-label = Addon Template: Helper Examples
-menupopup-label = Addon Template: Menupopup
-menuitem-submenulabel = Addon Template
-menuitem-filemenulabel = Addon Template: File Menuitem
-prefs-title = Template
-prefs-table-title = Title
-prefs-table-detail = Detail
-tabpanel-lib-tab-label = Lib Tab
-tabpanel-reader-tab-label = Reader Tab
+menuitem-ocr = OCR with MinerU (Markdown)
+
+progress-header = ZotMD: MinerU OCR
+progress-reading = Reading local files…
+progress-reading-file = Reading file…
+progress-uploading = Uploading to MinerU…
+progress-uploading-file = Uploading…
+progress-queued = Queued, waiting for MinerU…
+progress-parsing = MinerU is parsing…
+progress-parsed = Parsed, fetching result…
+progress-saving = Saving Markdown attachments…
+progress-done = Markdown attachment added
+progress-summary = Finished: { $succeeded } saved, { $failed } failed, { $skipped } skipped
+progress-cancelled = Cancelled — { $saved } file(s) saved, { $remaining } not processed
+progress-cancel-hint = Click this window to cancel
+
+progress-state-waiting-file = Waiting for upload…
+progress-state-pending = Queued…
+progress-state-running = Parsing…
+progress-state-converting = Converting…
+
+attachment-title = { $title } (MinerU Markdown)
+
+error-no-token = No MinerU API token configured. Open ZotMD settings in Zotero's Preferences.
+error-no-selection = Select at least one item first.
+error-nothing-to-ocr = Nothing to OCR: none of the { $count } selected item(s) has a PDF or other supported file attached.
+error-no-result = MinerU returned no result for this file.
+error-task-failed = MinerU failed to parse this file.
+error-no-markdown = The result archive did not contain a Markdown file.
+
+prefs-title = ZotMD
+pref-token-missing = Enter a token first.
+pref-token-checking = Checking…
+pref-token-valid = Token accepted.
