@@ -50,6 +50,22 @@ npm run build
 > [!IMPORTANT]
 > 解析会将所选文件上传到 MinerU。请确认文件适合交给该服务处理。API Token 以明文保存在本机 Zotero 偏好设置中，请勿分享包含 Token 的日志、配置或截图。
 
+### HTTP 接口
+
+Zotero 运行期间，插件在 Zotero 内置 HTTP 服务（`127.0.0.1:23119`，仅监听本机）上注册了 `POST /zotmd/convert`，供脚本直接驱动完整流程——进度窗口、取消、系统通知、附件命名均与右键菜单一致：
+
+```bash
+curl -X POST http://127.0.0.1:23119/zotmd/convert \
+  -H "Content-Type: application/json" \
+  -d '{"itemKeys": ["ABCD1234", "EFGH5678"]}'
+```
+
+- `itemKeys`：条目 Key（8 位），在所有可访问的文库中查找；垃圾箱内或未找到的 Key 会列入响应的 `missing` 字段。选中条目的 Key 可在 Zotero 的「Run JavaScript」窗口用 `Zotero.getActiveZoteroPane().getSelectedItems().map(i => i.key)` 批量获取。
+- 响应为 JSON：`{ "succeeded": 1, "failed": 0, "cancelled": 0, "skipped": [...], "missing": [] }`。
+- 请求会保持到本次 OCR 运行结束（可能长达数分钟），期间仍可在界面上点击进度窗口取消。同一时间只允许一个 HTTP 触发的运行，冲突请求返回 `409`。
+- 请求体不是合法 JSON、缺少 `itemKeys`、Token 未配置或没有可解析条目时返回 `400`，错误信息在 `error` 字段。
+- 若本机同时运行多个 Zotero 实例，只有最先启动的实例监听 23119 端口；用 `npm start` 调试本接口时，请先关闭日常使用的 Zotero。
+
 ## 设置
 
 | 设置                   | 默认值 / 说明                               |

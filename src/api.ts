@@ -10,6 +10,7 @@ import * as attachment from "./modules/attachment";
 import * as menu from "./modules/menu";
 import * as mineru from "./modules/mineru";
 import * as ocrTask from "./modules/ocrTask";
+import * as server from "./modules/server";
 import * as notify from "./utils/notify";
 import * as zip from "./utils/zip";
 
@@ -20,6 +21,7 @@ export function createApi() {
     mineru,
     notify,
     ocrTask,
+    server,
     zip,
   };
 }

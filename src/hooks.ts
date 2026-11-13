@@ -1,6 +1,10 @@
 import { getString, initLocale } from "./utils/locale";
 import { registerPrefsScripts } from "./modules/preferenceScript";
 import { registerItemMenu, unregisterItemMenu } from "./modules/menu";
+import {
+  registerServerEndpoint,
+  unregisterServerEndpoint,
+} from "./modules/server";
 import { createZToolkit } from "./utils/ztoolkit";
 
 async function onStartup() {
@@ -12,6 +16,7 @@ async function onStartup() {
 
   initLocale();
   registerPrefsPane();
+  registerServerEndpoint();
 
   await Promise.all(
     Zotero.getMainWindows().map((win) => onMainWindowLoad(win)),
@@ -39,6 +44,7 @@ async function onMainWindowUnload(win: Window): Promise<void> {
 }
 
 function onShutdown(): void {
+  unregisterServerEndpoint();
   for (const win of Zotero.getMainWindows()) {
     unregisterItemMenu(win);
   }
